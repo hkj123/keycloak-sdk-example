@@ -1,4 +1,28 @@
 <%- include('header') %>
-<h1><%= name.toUpperCase() %></h1>
-<p>hello, <%= name %></p>
+<div class="nav">
+    <ul>
+        <li><b>user operation</b></li>
+        <hr>
+    </ul>
+    <ul>
+        <li><a href="/users/find">Find user</a></li>
+
+    </ul>
+    <from action="#" method="POST">
+        <div style="margin-top:10px;">
+            <input type="submit" onclick="add();" value="Add user" style="padding: 8px 0 8px 165px;font-size: 20px;"/>
+        </div>
+    </from>
+</div>
+
+<div class="content">
+    <h2>Result</h2>
+    <pre id="results"><%= result %></pre>
+
+    <h2>Event</h2>
+    <pre id="events"><%= event %></pre>
+
+    <h2>Error</h2>
+    <pre id="errors"><%= error %></pre>
+</div>
 <%- include('footer') %>

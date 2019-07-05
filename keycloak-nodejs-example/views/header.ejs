@@ -2,12 +2,92 @@
 <html>
 
 <head>
-      <style type="text/css">
-            body {
-                  padding: 50px;
-                  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-            }
-      </style>
+    <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery-3.1.1.min.js"></script>
+    <style type="text/css">
+        body {
+            padding: 50px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 0 8px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        input a {
+            display: block;
+            color: #000;
+            padding: 8px 0 8px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        li b {
+            display: block;
+            color: #000;
+            padding: 8px 0 8px 16px;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        /* Change the link color on hover */
+        li a:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .nav {
+            float: left;
+            width: 250px;
+        }
+
+        .content {
+            margin-left: 270px;
+
+        }
+
+        pre {
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>keycloak</title>
+    <script>
+        function add() {
+            $.ajax({
+                url: '/users/add',
+                data:{},
+                type: 'POST',
+                timeout:'5000',
+                success: function (data) {
+                    console.log(data);
+                    $('body').html(data);
+                },
+                error: function (data) {
+                    // window.location.reload();
+                    console.log(data);
+                    $('body').html(data);
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
+<hr/>
+<h1 style="width: 100%; text-align: center;">keycloak nodejs example by edwing</h1>
