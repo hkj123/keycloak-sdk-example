@@ -40,50 +40,43 @@ app.use(bodyParser.json());
 // Enable CORS support
 app.use(cors());
 
-// Create a session-store to be used by both the express-session
-// middleware and the keycloak middleware.
-
-var memoryStore = new session.MemoryStore();
-
-app.use(session({
-  secret: 'some secret',
-  resave: false,
-  saveUninitialized: true,
-  store: memoryStore
-}));
-
 // Provide the session store to the Keycloak so that sessions
 // can be invalidated from the Keycloak console callback.
 //
 // Additional configuration is read from keycloak.json file
 // installed from the Keycloak web console.
+var memoryStore = new session.MemoryStore();
 
 var keycloak = new Keycloak({
-  store: memoryStore
+  store: memoryStore,
+  scope: 'offline_access' 
 });
+// Create a session-store to be used by both the express-session
+// middleware and the keycloak middleware.
+
 
 app.use(keycloak.middleware({
   logout: '/logout',
   admin: '/'
 }));
 
+app.use(session({
+  secret: 'mySecret',
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
+
 app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.get('/service/public', function (req, res) {
-  res.render('index', {
-    result: 'message: public',
-    event: '1. Authentication\n2. Login'
-  });
-});
-
-app.get('/login', keycloak.protect(), function (req, res) {
-  res.render('index', {
-    result: JSON.stringify(JSON.parse(req.session['keycloak-token']), null, 4),
-    event: '1. Authentication\n2. Login'
-  });
-});
+// app.get('/login', keycloak.protect(), function (req, res) {
+//   res.render('index', {
+//     result: JSON.stringify(JSON.parse(req.session['keycloak-token']), null, 4),
+//     event: '1. Authentication\n2. Login'
+//   });
+// });
 
 app.use('*', function (req, res) {
   res.send('Not found!');

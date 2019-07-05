@@ -4,23 +4,40 @@
   "description": "keycloak-nodejs-example",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -x ts-node src/index.ts",
+    "start": "node build/index.js",
+    "build": " tsc "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "Promise": "^1.0.5",
     "add": "^2.0.6",
     "body-parser": "^1.19.0",
+    "build": "^0.1.4",
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "express-validator": "^6.1.1",
     "hogan-express": "^0.5.2",
+    "keycloak-admin": "^1.12.0",
     "keycloak-connect": "^6.0.1",
+    "koa": "^2.7.0",
     "path": "^0.12.7",
+    "pug": "^2.0.4",
     "rexpress": "^0.2.0"
   },
   "repository": {
     "type": "git",
     "url": "http://baidu.com"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.49",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
   }
 }
