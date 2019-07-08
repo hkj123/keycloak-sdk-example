@@ -8,6 +8,8 @@ let app = express();
 import * as homeController from "./controllers/home";
 import * as userController from "./controllers/user";
 import * as errorController from "./controllers/error";
+import * as tokenController from "./controllers/token";
+import * as realmController from "./controllers/realm";
 
 // Express configuration
 app.set('views', path.join(__dirname, '../views'))// 设置存放模板文件的目录
@@ -22,7 +24,10 @@ app.use(
 app.get("/", homeController.index);
 app.post("/users/add", userController.postAdd);
 app.get("/users/find", userController.getFind);
+app.get("/token", tokenController.getToken);
 app.get("/error", errorController.error);
+app.get("/realm", realmController.getRealm);
+
 
 app.listen(3000, () => {
   console.log("server is running port 3000");

@@ -7,9 +7,7 @@ import KcAdminClient from "keycloak-admin";
  */
 export const postAdd = (req: Request, res: Response) => {
     const result = add();
-    console.log('222222222222222222222', result)
     result.then(data => {
-        console.log('demo test', data)
         res.render("home", {
             result: JSON.stringify(data),
             event: '1. users 2. add',
@@ -40,7 +38,6 @@ async function add() {
     kcAdminClient.setConfig({
         realmName: "spring-boot-quickstart"
     });
-
     await kcAdminClient.auth({
         username: "alice",
         password: "password",
