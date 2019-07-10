@@ -1,0 +1,13 @@
+<h2>Products</h2>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<button (click)="share()">
+  Share
+</button>
+
+<app-product
+  [product]="product"
+  (notify)="onNotify()">
+</app-product>
