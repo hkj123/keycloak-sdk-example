@@ -16,14 +16,27 @@
     "zone.js": "^0.9.1"
   },
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "start": "ng serve"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.801.0",
     "@angular/cli": "^8.1.0",
-    "typescript": "^3.5.3"
+    "@angular/compiler-cli": "^8.1.0",
+    "@angular/language-service": "^8.1.0",
+    "@types/jasmine": "^3.3.13",
+    "@types/jasminewd2": "^2.0.6",
+    "@types/node": "^12.6.2",
+    "codelyzer": "^5.1.0",
+    "jasmine-core": "^3.4.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^2.0.5",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "protractor": "^5.4.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "~3.4.0"
   }
 }
