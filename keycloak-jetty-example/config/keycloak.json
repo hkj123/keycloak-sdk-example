@@ -1,0 +1,9 @@
+{
+  "realm": "spring-boot-quickstart",
+  "auth-server-url": "http://localhost:8180/auth",
+  "ssl-required": "external",
+  "resource": "app-authz-springboot",
+  "credentials": {
+    "secret": "e6bc5c7c-ec63-43c5-a4d7-593f0de0cdcb"
+  }
+}
