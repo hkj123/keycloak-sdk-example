@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("初始化项目")
   }
 
 }
