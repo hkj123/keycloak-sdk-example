@@ -10,7 +10,7 @@
     <description>keycloak-jetty-example</description>
 
     <properties>
-        <version.keycloak>6.0.1</version.keycloak>
+        <version.keycloak>20.0.0</version.keycloak>
     </properties>
 
     <dependencies>
